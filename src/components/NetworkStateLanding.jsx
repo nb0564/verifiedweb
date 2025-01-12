@@ -1,18 +1,6 @@
 const NetworkStateLanding = () => {
     return (
       <div className="min-h-screen bg-black relative">
-        {/* Map Background */}
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url("${mapBase64}")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            filter: 'grayscale(100%)'
-          }}
-        />
-  
         {/* Content */}
         <div className="relative z-10 h-screen flex items-center justify-center">
           <div className="text-center">
