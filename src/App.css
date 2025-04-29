@@ -1,42 +1,194 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Styling for glowing text elements - updated color palette */
+.glow-text {
+  color: #52D3A6; /* Teal */
+  text-shadow: 0 0 5px rgba(82, 211, 166, 0.5);
+}
+
+.glow-border {
+  border: 1px solid #52D3A6;
+  box-shadow: 0 0 10px rgba(82, 211, 166, 0.3);
+}
+
+/* Additional color classes */
+.text-primary {
+  color: #52D3A6; /* Teal */
+}
+
+.text-secondary {
+  color: #38BDF8; /* Sky blue */
+}
+
+.text-accent {
+  color: #A78BFA; /* Purple */
+}
+
+.text-highlight {
+  color: #FBBF24; /* Amber */
+}
+
+/* Matrix rain effect canvas */
+canvas {
+  display: block;
+}
+
+/* Aspect ratio container for content preview */
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.aspect-w-16 > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(180deg, #00FF9D 0%, #008F58 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+/* Verification code input styling */
+input[type="text"]::placeholder {
+  color: rgba(0, 255, 157, 0.3);
+}
+
+/* Keyframe animations - updated with new color scheme and additional effects */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(82, 211, 166, 0.3);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    box-shadow: 0 0 20px rgba(82, 211, 166, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(82, 211, 166, 0.3);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes codeFieldFocus {
+  0% {
+    box-shadow: 0 0 5px rgba(82, 211, 166, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(82, 211, 166, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(82, 211, 166, 0.3);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scan-slow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.code-pulse {
+  animation: codeFieldFocus 1.5s infinite;
+}
+
+.float {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(82, 211, 166, 0), 
+    rgba(82, 211, 166, 0.2), 
+    rgba(82, 211, 166, 0)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-scan-slow {
+  animation: scan-slow 4s linear infinite;
+}
+
+/* Pseudo scan line effect */
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, rgba(82, 211, 166, 0.5), transparent);
+  opacity: 0.7;
+  z-index: 1;
+  animation: scanLine 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Disable blue highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Make sure modal is on top of everything */
+.modal {
+  z-index: 9999;
 }
